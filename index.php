@@ -1,16 +1,16 @@
 <html>
 <?php include('partials/head.html'); ?>
-<body ng-app>
-	<div ng-controller="ToDoCtrl">
+<body ng-app="todoApp">
+	<div ng-controller="todoCtrl">
 		<h1>There's still XXX things left to do</h1>
 
 		<ul>
-			<li></li>
+			<li ng-repeat="task in tasks">{{task}}</li>
 		</ul>
 
-		<form>
-			<input placeholder="search for stuff here" type="text" ng-model="formText" />
-			<button class="addMore" ng-click="addMore">Add To Do!</button>
+		<form ng-submit="addTask()">
+			<input placeholder="Add a new to-do" type="text" ng-model="newTask" />
+			<input type="submit" value="Add to-do!">
 		</form>
 	</div>
 </body>
